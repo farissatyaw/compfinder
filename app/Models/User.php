@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function competition()
+    {
+        if (!$this->isCO) {
+            return $this->belongsToMany(competition::class);
+        } else {
+            return $this->hasMany(competition::class);
+        }
+    }
 }
