@@ -17,6 +17,7 @@ class CreateCompetitionsTable extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('co_id');
+            $table->text('description');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->timestamps();

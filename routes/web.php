@@ -33,3 +33,5 @@ Route::get('/admin/dashboard', function () {
 Route::get('/user/dashboard', [App\Http\Controllers\UserController::class, 'index'])->name('user.dashboard');
 
 Route::get('/co/dashboard', [App\Http\Controllers\COController::class, 'index'])->name('CO.dashboard');
+Route::get('/co/competitions/add', [App\Http\Controllers\COController::class, 'add'])->name('CO.addcompetitions');
+Route::post('/co/competitions/add', [App\Http\Controllers\COController::class, 'create'])->name('CO.createcompetitions');
