@@ -60,9 +60,12 @@
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+        <form action="/admin/logout" method="POST">
+            @csrf
+        <button class="nav-link btn btn-link" data-widget="control-sidebar" data-slide="true" >
           Logout
-        </a>
+        </button>
+        </form>
       </li>
     </ul>
   </nav>
@@ -76,19 +79,6 @@
     </a>
 
     <!-- Sidebar -->
-
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -98,7 +88,7 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                  Dashboard
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -175,9 +165,9 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="{{asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)

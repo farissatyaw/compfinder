@@ -19,4 +19,10 @@ class AdminController extends Controller
             return back()->withErrors(['field_name' => ['Login Gagal']]);
         }
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/admin/login');
+    }
 }
