@@ -24,8 +24,12 @@ Route::get('/admin/login', function () {
 })->name('admin.login');
 Route::post('/admin/login', [App\Http\Controllers\AdminController::class, 'login']);
 Route::post('/admin/logout', [App\Http\Controllers\AdminController::class, 'logout']);
+
+
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard')->middleware('auth:admins');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/user/dashboard', [App\Http\Controllers\UserController::class, 'index'])->name('user.dashboard');
+
+Route::get('/co/dashboard', [App\Http\Controllers\COController::class, 'index'])->name('CO.dashboard');

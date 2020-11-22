@@ -19,8 +19,7 @@ class RedirectIfAuthenticated
      */
     public function handle(Request $request, Closure $next, ...$guards)
     {
-        $guards = empty($guards) ? [null] : $guards;
-
+        $guards=null;
         if (Auth::guard($guards)->check()) {
             switch ($guards) {
                 case 'admins':
@@ -28,7 +27,7 @@ class RedirectIfAuthenticated
                 default:
                     if (auth()->user()->isCO==1) {
                         return redirect(RouteServiceProvider::HOMECO);
-                    } else {
+                    } elseif (auth()->user()->isCO==0) {
                         return redirect(RouteServiceProvider::HOMEUSER);
                     }
             }
