@@ -19,11 +19,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
 Route::get('/admin/login', function () {
     return view('auth-admin.login');
-});
+})->name('admin.login');
 Route::post('/admin/login', [App\Http\Controllers\AdminController::class, 'login']);
-
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+})->name('admin.dashboard')->middleware('auth:admins');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
