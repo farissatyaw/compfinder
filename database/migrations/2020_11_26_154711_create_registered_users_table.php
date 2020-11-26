@@ -26,7 +26,7 @@ class CreateRegisteredUsersTable extends Migration
 
             $table->boolean('is_created')->default(false);
             
-            $table->string('bukti_bayar');
+            $table->string('bukti_bayar')->nullable();
                 
             $table->timestamps();
         });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\competition;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -26,6 +27,8 @@ class UserController extends Controller
         if (auth()->user()->isCO) {
             abort(401);
         }
-        return view('user.dashboard');
+
+        $competitions = competition::all();
+        return view('user.index', compact('competitions'));
     }
 }
