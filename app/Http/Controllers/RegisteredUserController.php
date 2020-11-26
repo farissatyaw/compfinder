@@ -20,6 +20,16 @@ class RegisteredUserController extends Controller
 
         return redirect()->back();
     }
+    public function addbuktibayar()
+    {
+        $pivot=RegisteredUser::where('competition_id', request()->competition_id)->first();
+
+        $path= 'storage' . substr(request()->file('bukti_bayar')->store('public/buktibayar'), 6);
+        $pivot->bukti_bayar= $path;
+        $pivot->save();
+        
+        return redirect()->back();
+    }
 
     public function index()
     {

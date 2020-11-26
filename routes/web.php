@@ -33,6 +33,7 @@ Route::get('/admin/dashboard', function () {
 Route::get('/user/dashboard', [App\Http\Controllers\UserController::class, 'index'])->name('user.dashboard');
 Route::get('/user/competitions', [App\Http\Controllers\RegisteredUserController::class, 'index'])->name('user.competitions');
 Route::post('/user/register', [App\Http\Controllers\RegisteredUserController::class, 'add']);
+Route::post('/user/addbuktibayar', [App\Http\Controllers\RegisteredUserController::class, 'addbuktibayar']);
 
 Route::get('/co/dashboard', [App\Http\Controllers\COController::class, 'index'])->name('CO.dashboard');
 Route::get('/co/competitions/add', [App\Http\Controllers\COController::class, 'add'])->name('CO.addcompetitions');
