@@ -13,7 +13,7 @@ class competition extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'registeredusers');
+        return $this->hasMany(RegisteredUser::class);
     }
     public function official()
     {

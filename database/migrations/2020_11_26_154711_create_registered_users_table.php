@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Registeredusers extends Migration
+class CreateRegisteredUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Registeredusers extends Migration
      */
     public function up()
     {
-        Schema::create('registeredusers', function (Blueprint $table) {
+        Schema::create('registered_users', function (Blueprint $table) {
             $table->id();
 
             $table->foreignId('user_id')
@@ -23,6 +23,10 @@ class Registeredusers extends Migration
             $table->foreignId('competition_id')
                 ->constrained()
                 ->onDelete('cascade');
+
+            $table->boolean('is_created')->default(false);
+            
+            $table->string('bukti_bayar');
                 
             $table->timestamps();
         });
@@ -35,6 +39,6 @@ class Registeredusers extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('registered_users');
     }
 }

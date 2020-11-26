@@ -38,10 +38,6 @@ class User extends Authenticatable
     ];
     public function competition()
     {
-        if (!$this->isCO) {
-            return $this->belongsToMany(competition::class);
-        } else {
-            return $this->hasMany(competition::class);
-        }
+        return $this->hasMany(competition::class);
     }
 }

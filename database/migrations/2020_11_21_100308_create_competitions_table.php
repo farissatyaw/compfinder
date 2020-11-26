@@ -20,6 +20,7 @@ class CreateCompetitionsTable extends Migration
             $table->text('description');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
+            $table->boolean('admin_approval')->default(false);
             $table->timestamps();
 
             //define foreign key
