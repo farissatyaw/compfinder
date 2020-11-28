@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\competition;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -28,7 +29,14 @@ class UserController extends Controller
             abort(401);
         }
 
-        $competitions = competition::all();
+        $competitions = competition::where('admin_approval', true)->get();
+
+        return view('user.index', compact('competitions'));
+    }
+    public function search()
+    {
+        $competitions=DB::table('competitions')->where('name', 'like', "%".request()->search."%")->get();
+
         return view('user.index', compact('competitions'));
     }
 }

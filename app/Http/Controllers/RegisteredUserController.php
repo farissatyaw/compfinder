@@ -42,6 +42,6 @@ class RegisteredUserController extends Controller
         }
 
 
-        return view('user.showregistered', compact('registeredcompetitions'));
+        return view('user.showregistered', compact('registeredcompetitions', 'pivots'));
     }
 }

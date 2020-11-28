@@ -18,6 +18,9 @@
                 <div class="card-body">
                     
                     <p>{{$comp->description}}</p>
+                    @if(!is_null($pivots[$loop->index]->bukti_bayar))
+                        <img src="/{{$pivots[$loop->index]->bukti_bayar}}" class="img-fluid">
+                    @else
                     <form method="POST" action="/user/addbuktibayar" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row mt-3">
@@ -36,6 +39,7 @@
                         <input type="hidden" name="competition_id" value="{{$comp->id}}">
 
                         <button class="btn btn-link">Submit</button>
+                        @endif
                     </form>
                 </div>
                 </div>
