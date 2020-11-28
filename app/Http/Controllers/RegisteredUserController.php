@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Mail\RegisterSuccess;
 use App\Models\competition;
 use App\Models\RegisteredUser;
+use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\Rule as ValidationRule;
 
 class RegisteredUserController extends Controller
 {
@@ -14,10 +17,14 @@ class RegisteredUserController extends Controller
     {
         $user=auth()->user();
         
-
         $validated=request()->validate([
             'competition_id'=>'required'
         ]);
+        $temp=RegisteredUser::where('user_id', $user->id)->where('competition_id', $validated['competition_id'])->get();
+        if (isset($temp)) {
+            return redirect()->back()->with('message', 'Already Registered');
+        }
+
         $competition = competition::find($validated['competition_id']);
 
         RegisteredUser::create([

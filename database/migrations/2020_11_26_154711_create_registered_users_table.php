@@ -23,6 +23,8 @@ class CreateRegisteredUsersTable extends Migration
             $table->foreignId('competition_id')
                 ->constrained()
                 ->onDelete('cascade');
+            
+            $table->unique(['user_id', 'competition_id']);
 
             $table->boolean('is_created')->default(false);
             
