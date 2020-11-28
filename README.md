@@ -56,8 +56,7 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## Security Vulnerabilities
-To Install:
+## To Install:
 1. Clone This Repository
 2. Run composer Install on this directory
 3. Copy .env.example to .env and change the database name to your desired database name
