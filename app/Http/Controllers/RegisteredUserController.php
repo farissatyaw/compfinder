@@ -20,8 +20,9 @@ class RegisteredUserController extends Controller
         $validated=request()->validate([
             'competition_id'=>'required'
         ]);
-        $temp=RegisteredUser::where('user_id', $user->id)->where('competition_id', $validated['competition_id'])->get();
-        if (isset($temp)) {
+        
+        
+        if (RegisteredUser::where('user_id', $user->id)->where('competition_id', $validated['competition_id'])->exists()) {
             return redirect()->back()->with('message', 'Already Registered');
         }
 

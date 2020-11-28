@@ -41,3 +41,4 @@ Route::get('/user/search', [App\Http\Controllers\UserController::class, 'search'
 Route::get('/co/dashboard', [App\Http\Controllers\COController::class, 'index'])->name('CO.dashboard');
 Route::get('/co/competitions/add', [App\Http\Controllers\COController::class, 'add'])->name('CO.addcompetitions');
 Route::post('/co/competitions/add', [App\Http\Controllers\COController::class, 'create'])->name('CO.createcompetitions');
+Route::get('/co/competitions/{competition}', [App\Http\Controllers\COController::class, 'show'])->name('CO.competitions');

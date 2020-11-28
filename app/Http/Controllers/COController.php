@@ -21,9 +21,19 @@ class COController extends Controller
     {
         $this->validateCO();
 
-        $competitions=competition::all();
+        $competitions=competition::where('co_id', auth()->user()->id)->get();
 
         return view('co.index', compact('competitions'));
+    }
+
+    public function show(competition $competition)
+    {
+        $registeredusers = [];
+        $this->validateCO();
+        for ($i=0; $i <count($competition->pivot) ; $i++) {
+            $registeredusers[$i]=$competition->pivot[$i]->users;
+        }
+        return view('co.show', compact('competition', 'registeredusers'));
     }
     public function add()
     {
@@ -39,14 +49,16 @@ class COController extends Controller
             'startdate'=>'required',
             'enddate'=>'required'
         ]);
-        competition::create([
+        $path= 'storage' . substr(request()->file('poster')->store('public/poster'), 6);
+        $comp=competition::create([
             'name'=>$validated['name'],
+            'poster'=>$path,
             'co_id'=>auth()->user()->id,
             'description'=>$validated['description'],
             'start_date'=>$validated['startdate'],
             'end_date'=>$validated['enddate']
-
         ]);
+        
         
         return redirect('/co/dashboard');
     }

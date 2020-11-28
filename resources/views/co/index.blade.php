@@ -5,7 +5,7 @@
         
         @forelse($competitions as $comp)
         <div class="container border mb-3">
-            <h5 class="m-3">{{ucfirst($comp->name)}}</h5>
+            <h5 class="m-3"><a href="/co/competitions/{{$comp->id}}">{{ucfirst($comp->name)}}</a></h5>
         </div>
         @empty
             No competitions yet

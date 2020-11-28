@@ -40,4 +40,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(competition::class);
     }
+    public function pivot()
+    {
+        return $this->hasMany(RegisteredUser::class);
+    }
 }

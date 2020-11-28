@@ -15,4 +15,8 @@ class RegisteredUser extends Model
     {
         return $this->belongsTo(competition::class);
     }
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

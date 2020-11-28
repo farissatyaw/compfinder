@@ -2,7 +2,7 @@
 
 @section('body')
     <div class="card-body">
-        <form method="POST" action="/co/competitions/add">
+        <form method="POST" action="/co/competitions/add" enctype="multipart/form-data">
             @csrf
             <div class="form-group row">
                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -29,6 +29,19 @@
                                 </span>
                             @enderror
                         </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <label for="poster" class="col-md-4 col-form-label text-md-right">Photo</label>
+
+                    <div class="col-md-6">
+                        <input id="poster" type="file" class="form-control @error('poster') is-invalid @enderror" name="poster" autofocus>
+                    
+                        @error('poster')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
                 </div>
                 <div class="form-group row">
                     <label for="startdate" class="col-md-4 col-form-label text-md-right">Start Date</label>

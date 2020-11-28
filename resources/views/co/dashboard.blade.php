@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('dropdown-item')
-<a href="/co/competitions"class="dropdown-item">Competitions</a>
+<a href="/co/dashboard"class="dropdown-item">Competitions</a>
 @endsection
 
 @section('content')

@@ -11,7 +11,7 @@ class competition extends Model
     
     protected $guarded=[];
 
-    public function users()
+    public function pivot()
     {
         return $this->hasMany(RegisteredUser::class);
     }
