@@ -17,6 +17,6 @@ class competition extends Model
     }
     public function official()
     {
-        return $this->belongsTo(User::class, 'CO_id');
+        return $this->belongsTo(User::class, 'co_id');
     }
 }

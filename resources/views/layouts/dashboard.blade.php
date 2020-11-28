@@ -95,9 +95,9 @@
             <ul class="nav nav-treeview">
           <li class="nav-header">MISCELLANEOUS</li>
           <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.0/" class="nav-link">
+            <a href="/admin/competitions" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
-              <p>Documentation</p>
+              <p>Competitions</p>
             </a>
           </li>
           <li class="nav-header">MULTI LEVEL EXAMPLE</li>

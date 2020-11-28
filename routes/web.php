@@ -29,6 +29,8 @@ Route::post('/admin/logout', [App\Http\Controllers\AdminController::class, 'logo
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard')->middleware('auth:admins');
+Route::get('/admin/competitions', [App\Http\Controllers\AdminController::class, 'competitionsindex'])->name('admin.competition');
+Route::post('/admin/competitions/verify', [App\Http\Controllers\AdminController::class, 'verifycompetition']);
 
 Route::get('/user/dashboard', [App\Http\Controllers\UserController::class, 'index'])->name('user.dashboard');
 Route::get('/user/competitions', [App\Http\Controllers\RegisteredUserController::class, 'index'])->name('user.competitions');

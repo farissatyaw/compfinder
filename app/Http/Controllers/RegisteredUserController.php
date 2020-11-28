@@ -2,21 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\RegisterSuccess;
+use App\Models\competition;
 use App\Models\RegisteredUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class RegisteredUserController extends Controller
 {
     public function add()
     {
+        $user=auth()->user();
+        
+
         $validated=request()->validate([
             'competition_id'=>'required'
         ]);
+        $competition = competition::find($validated['competition_id']);
 
         RegisteredUser::create([
-            'user_id' => auth()->user()->id,
+            'user_id' => $user->id,
             'competition_id'=>$validated['competition_id']
         ]);
+
+        Mail::to($user->email)
+            ->send(new RegisterSuccess($user, $competition));
 
         return redirect()->back();
     }
