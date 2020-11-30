@@ -56,6 +56,14 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
+## To Install:
+1. Clone This Repository
+2. Run composer Install on this directory
+3. Copy .env.example to .env and change the database name to your desired database name
+4. php artisan key:generate
+5. php artisan migrate --seed
+6. php artisan serve
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
