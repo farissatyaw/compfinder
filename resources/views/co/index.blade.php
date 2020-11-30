@@ -1,8 +1,7 @@
 @extends('co.dashboard')
 
 @section('body')
-    <div class="card-body">
-        
+    <div class="card-body" style="width:60rem;">
         @forelse($competitions as $comp)
         <div class="container border mb-3">
             <h5 class="m-3"><a href="/co/competitions/{{$comp->id}}">{{ucfirst($comp->name)}}</a></h5>

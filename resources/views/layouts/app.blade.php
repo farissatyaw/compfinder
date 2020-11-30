@@ -45,12 +45,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive"><a href="/"><img src="{{ asset ('img/Untitled-1.png')}}" style="width: 50px;height: 69px;"></a>
                 <ul class="nav navbar-nav ml-auto mr-4">
                     <li class="nav-item d-xl-flex align-items-xl-center">
-                        <form class="form-inline search-form">
-                            <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-search"></i></span></div><input type="text" class="form-control" placeholder="I am looking for.." />
-                                <div class="input-group-append"><button class="btn btn-light" type="button">Search </button></div>
-                            </div>
-                        </form>
+                            @yield('searchbar')
                     </li>
                     </ul>
                     <ul class="nav navbar-nav">
