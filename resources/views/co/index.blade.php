@@ -14,3 +14,4 @@
     <a class="btn btn-primary" href="/co/competitions/add">New Competition</a>
     </div>
 @endsection
+
