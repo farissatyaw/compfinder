@@ -7,7 +7,7 @@
         @else
         Status : Unverified
         @endif
-    {{$competition}}
+    {{$competition->name}}
     <table class="table">
         <thead>
             <tr>
