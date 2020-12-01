@@ -1,7 +1,7 @@
 @extends('co.dashboard')
 
 @section('body')
-    <div class="card-body">
+    <div class="card-body"style="width:60rem;">
         <form method="POST" action="/co/competitions/add" enctype="multipart/form-data">
             @csrf
             <div class="form-group row">
@@ -69,8 +69,10 @@
                             @enderror
                         </div>
                 </div>
-
-                <button class="btn btn-primary">Submit</button>
+                
+                <div style="text-align:center;">
+                    <button class="btn btn-primary">Submit</button>
+                </div>
         </form>
     </div>
 @endsection
